@@ -30,3 +30,8 @@ const ann: string = "teste";
 let inf = "teste";
 
 console.log("testando hot reload...")
+
+let num: number = 15;
+let text = num.toString();
+
+console.log("este é o resultado obtido: " + text)

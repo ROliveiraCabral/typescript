@@ -25,3 +25,6 @@ console.log(a);
 const ann = "teste";
 let inf = "teste";
 console.log("testando hot reload...");
+let num = 15;
+let text = num.toString();
+console.log("este é o resultado obtido: " + text);
