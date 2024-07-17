@@ -81,7 +81,7 @@ showNumber(15, 25);
 //9 - validando argumento opcional
 function advancedGreeting(firstName: string, lastName?: string) {
   if (lastName !== undefined) {
-    return `Olá ${firstName} ${ lastName}, tudo bem?`;
+    return `Olá ${firstName} ${lastName}, tudo bem?`;
   }
 
   return `Olá ${firstName}, tudo bem?`;
@@ -89,3 +89,78 @@ function advancedGreeting(firstName: string, lastName?: string) {
 
 console.log(advancedGreeting("Valentina", "Ally"));
 console.log(advancedGreeting("Vitória"));
+
+// 10 - union type
+function showBalance(balance: string | number) {
+  console.log(`o saldo da conta é R$ ${balance}`);
+}
+
+showBalance(100);
+showBalance("500");
+
+const arr2: Array<number | string> = [1, 10, "camisa", 20, "calça"];
+console.log(arr2);
+
+//11 - avançando em union type
+function showUserRole(role: boolean | string) {
+  if (!role) {
+    return "Usuário não aprovado!";
+  }
+
+  return `A função do usuário é: ${role}`;
+}
+
+console.log(showUserRole(false));
+console.log(showUserRole("Admin"));
+
+//12 - type alias
+type ID = number | string;
+function showId(id: ID) {
+  console.log(`O ID é: ${id}`);
+}
+
+showId(1);
+showId("AbC-200");
+
+//13 - interface
+interface Point {
+  x: number;
+  y: number;
+  z: number;
+}
+
+function showCoords(obj: Point) {
+  console.log(`x: ${obj.x}, y:${obj.y}, z:${obj.z}`);
+}
+
+const coordObj: Point = {
+  x: 10,
+  y: 15,
+  z: 25,
+};
+
+showCoords(coordObj);
+
+//14 - interface x type alias
+interface Person {
+  name: string;
+}
+
+interface Person {
+  age: number;
+}
+
+const somePerson: Person = {
+  name: "Rodrigo",
+  age: 41,
+};
+
+console.log(somePerson);
+
+type personType = {
+  name: string;
+};
+
+/*type personType = {
+  age: number;
+};*/

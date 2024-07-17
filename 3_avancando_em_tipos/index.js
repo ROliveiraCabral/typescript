@@ -68,3 +68,42 @@ function advancedGreeting(firstName, lastName) {
 }
 console.log(advancedGreeting("Valentina", "Ally"));
 console.log(advancedGreeting("Vitória"));
+// 10 - union type
+function showBalance(balance) {
+    console.log(`o saldo da conta é R$ ${balance}`);
+}
+showBalance(100);
+showBalance("500");
+const arr2 = [1, 10, "camisa", 20, "calça"];
+console.log(arr2);
+//11 - avançando em union type
+function showUserRole(role) {
+    if (!role) {
+        return "Usuário não aprovado!";
+    }
+    return `A função do usuário é: ${role}`;
+}
+console.log(showUserRole(false));
+console.log(showUserRole("Admin"));
+function showId(id) {
+    console.log(`O ID é: ${id}`);
+}
+showId(1);
+showId("AbC-200");
+function showCoords(obj) {
+    console.log(`x: ${obj.x}, y:${obj.y}, z:${obj.z}`);
+}
+const coordObj = {
+    x: 10,
+    y: 15,
+    z: 25,
+};
+showCoords(coordObj);
+const somePerson = {
+    name: "Rodrigo",
+    age: 41,
+};
+console.log(somePerson);
+/*type personType = {
+  age: number;
+};*/
