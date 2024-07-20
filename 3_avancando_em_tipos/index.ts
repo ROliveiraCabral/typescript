@@ -164,3 +164,30 @@ type personType = {
 /*type personType = {
   age: number;
 };*/
+
+//15 - literal types
+let test: "testando";
+test = "testando";
+console.log(test);
+
+function showDirect(direction: "left" | "right" | "center") {
+  console.log(`a direção escolhida foi: ${direction}`);
+}
+
+showDirect("center");
+
+//16 - non null-assertion (? ! operators)
+const p = document.getElementById("some-p");
+console.log(p!.innerText);
+
+//17 - Bigint - temos que configurar o arquivo tsconfig e setar a versão do es para 2020
+let n: bigint;
+//n = 1
+n = 1000n;
+
+//18 - symbol a partir do es2020 como bigint
+let symbolA: symbol = Symbol("a");
+let symbolB = Symbol("a");
+
+console.log(symbolA == symbolB);
+console.log(symbolA === symbolB);
