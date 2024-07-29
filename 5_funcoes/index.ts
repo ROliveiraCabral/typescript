@@ -58,3 +58,73 @@ function biggestNumber<T extends number | string>(a: T, b: T): T {
 
 console.log(biggestNumber(5, 3));
 console.log(biggestNumber("12", "15"));
+
+// 5 - especificar tipo de argumento
+function mergeArray<T>(arr1: T[], arr2: T[]) {
+  return arr1.concat(arr2);
+}
+
+console.log(mergeArray([1, 2, 3], [4, 5, 6]));
+console.log(mergeArray<Number | string>([1, 2, 3], ["teste", "testando"]));
+
+//6 - parametros opcionais
+function modernGreeting(name: string, greet?: string) {
+  if (greet) {
+    return `Olá ${greet} ${name}, tudo bem?`;
+  } else {
+    return `Olá ${name}, tudo bem?`;
+  }
+}
+
+console.log(modernGreeting("Rodrigo"));
+console.log(modernGreeting("Patrícia", "Sra."));
+
+// 7 - parametro default
+function somaDefault(a: number, b = 10) {
+  return a + b;
+}
+
+console.log(somaDefault(31));
+console.log(somaDefault(20, 15));
+
+// 8 - unknown
+function doSomething(x: unknown) {
+  if (Array.isArray(x)) {
+    console.log(x[0]);
+  } else if (typeof x === "number") {
+    console.log("x é um número " + x);
+  }
+}
+
+doSomething([10, 20, 30]);
+doSomething(99);
+
+// 9 - never
+function showErrorMessage(msg: string): never {
+  throw new Error(msg);
+}
+
+//showErrorMessage("Algum erro");
+
+// 10 - rest operator
+function sumAll(...n: number[]) {
+  return n.reduce((number, sum) => sum + number);
+}
+
+console.log(sumAll(1, 2, 3, 4, 5));
+console.log(sumAll(100, 250, 633));
+
+// 11 -destructuring como parâmetro
+function showProductDetails({
+  name,
+  price,
+}: {
+  name: string;
+  price: number;
+}): string {
+  return `O nome do produto é ${name} e o preço é R$ ${price}`;
+}
+
+const shirt = { name: "Camisa", price: 49.99 };
+
+console.log(showProductDetails(shirt));
