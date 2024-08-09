@@ -67,3 +67,97 @@ const fusca: Car = {
 
 console.log(fusca);
 //fusca.wheels = 5;
+
+//4 - index signature
+interface CoordObject {
+  [index: string]: number;
+}
+
+let coords: CoordObject = {
+  x: 10,
+};
+
+console.log(coords);
+
+coords.y = 15;
+
+//coords.z = "teste";
+
+//5 - extending interfaces
+interface Human {
+  name: string;
+  age: number;
+}
+
+interface SuperHuman extends Human {
+  superPowers: string[];
+}
+
+const matheus: Human = {
+  name: "Matheus",
+  age: 30,
+};
+
+console.log(matheus);
+
+const rodrigo: SuperHuman = {
+  name: "Rodrigo",
+  age: 41,
+  superPowers: ["invisible", "fast"],
+};
+
+console.log(rodrigo);
+console.log(rodrigo.superPowers[1]);
+
+//6 - intersection types
+interface Character {
+  name: string;
+}
+
+interface Gun {
+  type: string;
+  caliber: number;
+}
+
+type HumanWithGun = Character & Gun;
+
+const arnold: HumanWithGun = {
+  name: "Arnold",
+  type: "ShotGun",
+  caliber: 12,
+};
+
+console.log(arnold);
+
+//7 - readonly array
+let myArray: ReadonlyArray<string> = ["maça", "laranja", "banana"];
+//myArray[3] = "mamão";
+
+console.log(myArray);
+
+myArray.forEach((fruta) => {
+  console.log("fruta: " + fruta);
+});
+
+myArray = myArray.map((fruta) => {
+  return `fruta: ${fruta}`;
+});
+
+console.log(myArray);
+
+//8 - tuplas
+type FiveNumbers = [number, number, number, number, number];
+
+//number
+const myFiveNumberArray: FiveNumbers = [1, 2, 3, 4, 5];
+//const myFiveNumberArray2: FiveNumbers = [1, 2, 3, 4, 5, 6];
+
+console.log(myFiveNumberArray[4]);
+
+//9 - tuplas com readonly
+function showNumbers(numbers: readonly [number, number]) {
+  console.log(numbers[0]);
+  console.log(numbers[1]);
+}
+
+showNumbers([15, 25]);
