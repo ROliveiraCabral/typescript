@@ -54,3 +54,38 @@ const myPen: Pen = {
 
 console.log(myCar);
 console.log(myPen);
+
+//4 - type parameters
+function getSomeKey<T, K extends keyof T>(obj: T, key: K) {
+  return `A chave ${String(key)} está presente no objeto e tem o valor de ${
+    obj[key]
+  }`;
+}
+
+const server = {
+  hd: "2TB",
+  ram: "32GB",
+};
+
+console.log(getSomeKey(server, "ram"));
+
+//5 - keyof type operator
+type Character = {
+  name: string;
+  age: number;
+  hasDriveLicense: boolean;
+};
+
+type C = keyof Character;
+
+function showCharName(obj: Character, name: C): string {
+  return `${obj[name]}`;
+}
+
+const myChar = {
+  name: "Vitória",
+  age: 18,
+  hasDriveLicense: true,
+};
+
+console.log(showCharName(myChar, "name"));
