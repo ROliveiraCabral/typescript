@@ -54,3 +54,21 @@ const myChar = {
     hasDriveLicense: true,
 };
 console.log(showCharName(myChar, "name"));
+//6 - typeof type operator
+const userName = "Rodrigo";
+const userName2 = "Maria";
+const userName4 = "José";
+const newTruck = {
+    km: 10000,
+    kg: 5000,
+    description: "caminhão para pouca carga",
+};
+function showKm(km) {
+    console.log(`O caminhão possui ${km} km`);
+}
+showKm(newTruck.km);
+const newCar = {
+    km: 50000,
+    kg: 3000
+};
+showKm(newCar.km);
