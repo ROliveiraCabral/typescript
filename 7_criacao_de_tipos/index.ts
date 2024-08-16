@@ -118,7 +118,28 @@ showKm(newTruck.km);
 
 const newCar = {
   km: 50000,
-  kg: 3000
-}
+  kg: 3000,
+};
 
 showKm(newCar.km);
+
+//8 - conditional types
+interface A {}
+
+interface B extends A {}
+
+type myType = B extends A ? number : string;
+
+const someVar: myType = 5;
+
+//9 - template literals type
+type testA = "text";
+
+type customType = `some ${testA}`;
+
+const someTest: customType = "some text";
+
+type a1 = "testando";
+type a2 = "union";
+
+type a3 = `${a1}` | `${a2}`;

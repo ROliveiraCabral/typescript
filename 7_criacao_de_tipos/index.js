@@ -69,6 +69,8 @@ function showKm(km) {
 showKm(newTruck.km);
 const newCar = {
     km: 50000,
-    kg: 3000
+    kg: 3000,
 };
 showKm(newCar.km);
+const someVar = 5;
+const someTest = "some text";
