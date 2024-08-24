@@ -100,3 +100,84 @@ const myCoords = new Coords();
 myCoords.fillx = 10;
 myCoords.filly = 5;
 console.log(myCoords);
+class BlogPost {
+    constructor(title) {
+        this.title = title;
+    }
+    itemTitle() {
+        return `O título do post é ${this.title}`;
+    }
+}
+const myPost = new BlogPost("Hello World!");
+console.log(myPost.itemTitle());
+class TestingInterface {
+    constructor(title) {
+        this.title = title;
+    }
+    itemTitle() {
+        return `O título é ${this.title}`;
+    }
+}
+const test = new TestingInterface("Hi, I'm here with you!");
+console.log(test.itemTitle());
+//10 - override de métodos
+class Base {
+    someMethod() {
+        console.log("alguma coisa");
+    }
+}
+const myObject = new Base();
+console.log(myObject.someMethod());
+class Nova extends Base {
+    someMethod() {
+        console.log("testando uma outra coisa");
+    }
+}
+const myNewObject = new Nova();
+console.log(myNewObject.someMethod());
+//11 - public
+class C {
+    constructor() {
+        this.x = 10;
+    }
+}
+const cInstance = new C();
+console.log(cInstance.x);
+class D extends C {
+}
+const dInstance = new D();
+console.log(dInstance.x);
+//12 - protected
+class E {
+    constructor() {
+        this.x = 100;
+    }
+    protectedMethod() {
+        console.log("método protegido");
+    }
+}
+class F extends E {
+    showx() {
+        console.log(this.x);
+    }
+    showProtectedMethod() {
+        this.protectedMethod();
+    }
+}
+const fInstance = new F();
+//console.log(fInstance.x); erro só pode ser acessada via método;
+fInstance.showx();
+//fInstance.protectedMethod(); erro só pode ser acessada via método;
+fInstance.showProtectedMethod();
+//13 - private
+class PrivateClass {
+    constructor() {
+        this.name = "private";
+    }
+    get getName() {
+        return this.name;
+    }
+}
+const pObj = new PrivateClass();
+//console.log(pObj.name); erro só pode ser acessada via método ou um getter se implementado;
+console.log(pObj.getName);
