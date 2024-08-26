@@ -257,3 +257,114 @@ class PrivateClass {
 const pObj = new PrivateClass();
 //console.log(pObj.name); erro só pode ser acessada via método ou um getter se implementado;
 console.log(pObj.getName);
+
+//14 - static members
+class StaticMembers {
+  static prop = "Teste estático";
+
+  static staticMethod() {
+    console.log("Este é um método estático!");
+  }
+}
+
+console.log(StaticMembers.prop);
+StaticMembers.staticMethod();
+
+//15 - generic class
+class Item<T, U> {
+  first;
+  second;
+
+  constructor(first: T, second: U) {
+    this.first = first;
+    this.second = second;
+  }
+
+  get showFirstItem() {
+    return `O resultado de first item é ${this.first}`;
+  }
+
+  get showSecondItem() {
+    return `o resultado de second item é ${this.second}`;
+  }
+}
+
+const newItem = new Item("caixa", "surpresa");
+console.log(newItem);
+console.log(newItem.showFirstItem);
+console.log(typeof newItem.showFirstItem);
+
+const otherItem = new Item(5, true);
+console.log(otherItem.showFirstItem);
+console.log(typeof otherItem.first);
+console.log(otherItem.showSecondItem);
+console.log(typeof otherItem.second);
+
+//16 - parameter properties
+class ParameterProperties {
+  constructor(public name: string, private qty: number, private price: number) {
+    this.name = name;
+    this.qty = qty;
+    this.price = price;
+  }
+
+  get showQty() {
+    return `Quantidade total = ${this.qty}`;
+  }
+
+  get showPrice() {
+    return `Valor unitário = R$ ${this.price}`;
+  }
+}
+
+const newShirt = new ParameterProperties("Camisa", 5, 19.99);
+console.log(newShirt.name);
+console.log(newShirt.showQty);
+console.log(newShirt.showPrice);
+
+//17 class expressions
+const myClass = class<T> {
+  name;
+
+  constructor(name: T) {
+    this.name = name;
+  }
+};
+
+const pessoa = new myClass("Jones");
+console.log(pessoa);
+console.log(pessoa.name);
+
+//18 - abstract class
+abstract class AbstractClass {
+  abstract showName(): void;
+}
+
+class AbstractExemplo extends AbstractClass {
+  name;
+
+  constructor(name: string) {
+    super();
+    this.name = name;
+  }
+
+  showName() {
+    console.log(`O nome é ${this.name}`);
+  }
+}
+
+const newAbstractObj = new AbstractExemplo("Valquíria");
+newAbstractObj.showName();
+
+//19 - relações entre classes
+class Dog {
+  name!: string;
+}
+
+class Cat {
+  name!: string;
+}
+
+const doguinho: Dog = new Cat();
+console.log(typeof doguinho);
+console.log(doguinho);
